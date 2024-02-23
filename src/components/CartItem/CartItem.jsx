@@ -6,8 +6,11 @@ const CartItem = ({ id, title, type, price, size, count, imageUrl }) => {
     const onClickPlus = () => {
         dispatch(plusItem(id)) 
     }
-    const onClickMinus = () => {
-       dispatch(minusItem(id))   
+  const onClickMinus = () => {
+    if (count > 1) {
+      dispatch(minusItem(id))
+    }
+          
     }
     const onClickRemove = () => {
         if (window.confirm('Бажаєте видалити піццу?')) {
